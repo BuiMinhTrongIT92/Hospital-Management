@@ -1,0 +1,91 @@
+{% extends 'admin/master.html' %}
+
+{% block body%}
+<div style="display:flex">
+    <div style="width: 50%;">
+         <div>
+            <form class="pkt" style="width:50%; ">
+
+                    <label>ID phiếu khám</label><br>
+                    <input type="submit" value="Xem" class="btn btn-info" style="margin-left: auto;width: 100%;" name="Xem">
+                    <hr style=" text-align:left; margin-left: 0px">
+                    <br>
+
+                    <div class="form-group dsthuoc" style=" margin-right: 10px" >
+                            <select name="phieukham" style="width:104%; height: 40px;border-radius:10px;font-weight: 500;" >
+                                {% for c in geti %}
+                                    <option value="{{ c.idPhieuKham }}" style="text-align:center;">{{ c.idPhieuKham }}</option>
+                                {% endfor %}
+
+                            </select>
+                            <br>
+                    </div>
+
+                <!--    <input type="submit" value="xem" class="btn btn-info" style="margin-left: auto;width: 50%;">-->
+
+                    <div class="form-group dsthuoc" style=" margin-left: 0px" >
+
+                        <div >
+                            <label for="gender" style="color:blue">{{countds}}</label><br>
+                            <select name="loaithuoc" id="gender" style="width:100%; height: 40px;border-radius:10px;font-weight: 500;" >
+                                {% for thuoc in dsthuoc%}
+                                <option value="{{ thuoc.tenThuoc}}" style="text-align:center;">{{ thuoc.tenThuoc}}</option>
+                                {% endfor %}
+                            </select>
+                            <br>
+                            <br>
+                            <label for="sl" style="margin:0px;">Số lượng</label>
+
+                            <br>
+                            <input type="number" class="form-control" id="sl" name="sl" style="width:25% ;margin-bottom: 3%;width: 100%; border-radius:10px;text-align:center;" >
+
+                            <input type="submit" value="Lưu" class="btn btn-danger" style="margin-left: auto;width: 100%;">
+                        </div>
+
+                    </div>
+
+            </form>
+        </div>
+        <hr style="width:50%; text-align:left; margin-left: 0px">
+    <div>
+        <form>
+            <div class="form-group">
+                <label for="sl" style="margin:0px;">Chọn ID dòng muốn xóa</label>
+                <input type="number" class="form-control"  name="deleteid" style="width:50% ;margin-bottom: 3%; border-radius:10px;text-align:center;" >
+            </div>
+
+            <input name="xoa" type="submit" value="Xóa" style="margin-left: auto;background-color: yellow;
+            margin-left: auto;
+            width: 50%;
+            border-radius: 4px;
+            border: 1px solid yellow;
+            height:40px;
+            color: black" class="btn btn-danger">
+        </form>
+    </div>
+    </div>
+
+
+    <div style="width:65%; overflow: auto">
+        <table class="table" style=" border:3px solid lightblue;">
+            <tr>
+                <th>ID</th>
+                <th>Tên thuốc</th>
+                <th>Số lượng</th>
+                <th>Phiếu khám</th>
+            </tr>
+            {% for s in table %}
+            <tr>
+                <td>{{ s.idPKT }} </td>
+                <td>{{ s.tenThuoc }}</td>
+                <td>{{ s.soluong }} </td>
+                <td>{{ s.idPhieuKham}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+
+
+{% endblock%}

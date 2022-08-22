@@ -1,0 +1,371 @@
+*{
+    transition:0.6s;
+}
+
+.load {
+    width: 100%;
+    height:100%;
+    position: fixed;
+    z-index: 10000000000;
+    background-color: white;
+    text-align: center;
+    opacity:0;
+}
+
+.load img{
+    margin-top: 5%;
+}
+
+h1#tenphongkham {
+     text-align: center;
+     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     font-weight: 800;
+     font-size: 20;
+     padding: 20px;
+     color: #00adc6;
+}
+
+body {
+    background-image: linear-gradient(#cee4f8, #ffffff);
+    font-family: "Poppins", sans-serif !important;
+}
+
+{# HEADER #}
+ul#nav{
+    margin: 0px;
+    padding: 0px;
+    width: 95%;
+}
+
+nav.navbar {
+    border-radius: 0px 0px 36px 36px;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 30px;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.hinhanh img {
+    width: 130%;
+
+}
+
+.navbar-nav .nav-item a {
+    color: #454141f0;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    transition: 0.5s;
+    border-radius: 20px;
+    font-weight:600;
+}
+.navbar-nav .nav-item a:hover {
+   background-color: #68e1f233;
+   border-radius: 20px;
+   box-shadow: 0 0 1px 10px #eee;
+   background-postion: right center;
+}
+.navbar-nav li:last-child{
+    margin-left:auto;
+    display:flex;
+}
+.btn_login {
+    border-radius: 7px;
+    margin-right: 14px;
+    background-color:#4d87e8;
+    color:white !important;
+}
+.btn_login:hover {
+    color: black !important;
+}
+.avatar{
+    width:36px;
+    height: 32px;
+    border-radius: 18px;
+    margin-right: 20px;
+}
+#dangkilichkham{
+    background-color:#062456bd;
+    color: white;
+}
+
+/* =========================Body============================*/
+{# BODY #}
+section.trangchu-dangnhap-hinhanh {
+    width:85%;
+    background-color: white;
+    padding-left: 2%;
+    padding-right: 12%;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 1px 1px 13px -1px lightgrey;
+    margin-bottom: 24px;
+    background-color: white !important;
+    margin-left:auto;
+    margin-right:auto;
+    border: 7px solid #c1d3ea66;
+}
+.right-dangki h3{
+ width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-weight:900;}
+section.trangchu-dangki-hinhanh {
+    padding-left: 2%;
+    padding-right: 0%;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 1px 1px 13px -1px lightgrey;
+    margin-bottom: 24px;
+    border: 3px solid rgb(254 255 255 / 23%);
+}
+
+
+div.trangchu dangnhap left{
+    padding: 40%;
+}
+
+div.trangchu {
+    width: 50%;
+    margin: 10px;
+}
+div.thongtin {
+    width: 50%;
+    float: left;
+    margin: 10px;
+}
+.trangchu input {
+    border: none;
+    background: rgb(242 240 246);
+    border-radius:15px;
+    height: 56px;
+}
+.trangchu input:nth-child(3) {
+    width: 100%;
+    border-radius: 20px;
+    background: #09ba09;
+    border: none;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.trangchu input:nth-child(3):hover {
+    box-shadow: -10px 3px 36px -12px #00ff6c;
+    background: #07cc07;
+}
+.btn-danger {
+    width:100%;
+    background-color: #fc4651 !important;
+}
+.btn-danger:hover {
+    box-shadow: -10px 3px 36px -12px #f00e1cc9;
+    background: #07cc07;
+}
+.right-dangki {
+    background-image: linear-gradient(to right,#6fc2e1, #38b5f4e8);
+    border-radius: 20px;
+    margin: 0% !important;
+}
+div.form-group {
+    font-weight:800;
+}
+
+a#gototop{
+    text-decoration: none;
+    opacity: 1!important;
+    color: gray !important;
+    width: 55px;
+    height: 55px;
+    border-radius: 200px;
+    background-color: white;
+    text-align: center;
+    font-weight: 1000;
+    font-size: 34px;
+    position: fixed;
+    display: block;
+    right: 15px;
+    bottom: 15px;
+    z-index: 999;
+    box-shadow: 1px 0px 28px -9px black;
+    border: 7px solid #46aee98f;
+}
+.toT{
+    color:black;
+}
+a#gototop:hover {
+    box-shadow: 1px 0px 9px 4px #00ff6c;
+    transition: 0.5s;
+}
+
+
+select#gender {
+    border: none;
+    background: rgb(242 240 246);
+    border-radius: 10px;
+    height: 56px;
+    width: 19%;
+    text-align: center;
+}
+
+.container {
+    max-width: 1332px;
+}
+/* ---------------gioithieu----------------------- */
+section.gioithieu{
+
+}
+
+/* ---------------doingubacsi----------------------- */
+section.doingubacsi {
+
+
+    border-radius: 20px !important;
+
+    /* margin: 10px; */
+
+    padding: 2%;
+    margin-bottom: 20px;
+}
+.doingubacsi-tab {
+    padding: 1%;
+    width: 31%;
+    height: 418px;
+    border: 7px solid #ffffff8a !important;
+    background-color: #b2f0f091;
+    border: 1px solid black;
+    float: left;
+    margin: 10px 10px;
+    border-radius: 20px;
+    word-wrap: break-word;
+}
+.doingubacsi-tab img{
+    width:100%;
+    height:60%;
+    border-radius: 20px 20px 0px 0px;
+}
+.doingubacsi-tab p{
+    margin-top: 9%;
+    font-weight: bold;
+}
+.carousel{
+    width:100%;
+    height:100%;
+    display:flex;
+}
+.doingubacsi-tab{
+    float:left;
+}
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #ffffff4a;
+    border-color: #ffffff00;
+}
+.tintuc{
+    background-color: white;
+    width: 100%!important;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 13px -1px #0000001c;
+    position: relative;
+    margin-left: 0%;
+    padding: 2% 0% 5% 5%;
+}
+.tintuc-avatar{
+    width: 31%;
+    height: 88%;
+    position: absolute;
+    left: 64%;
+    margin-top: 1%;
+    border-radius: 20px;
+}
+.show img{
+    width: 100%;
+    height:100%;
+    border-radius: 20px;
+    border: 7px solid #c1d3ea66;
+}
+
+.info-dangki{
+    width: 50%;
+}
+.info-dangki input{
+    background: #f2f0f661;
+    border-radius: 15px;
+    height: 56px;
+}
+#trieuchung {
+    height: 180px;
+}
+
+/* ---------------doingubacsi----------------------- */
+/* =========================Footer============================*/
+{# FOOTER #}
+div.jumbotron {
+    color: white;
+    background-color: #58acd0a3;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 36px 36px 0px 0px;
+    margin-bottom: 0%;
+    text-align:center;
+    padding: 20px;
+}
+div.jumbotron h3{
+    float:left;
+    margin-right:10px;
+    width: 35%;
+    font-weight: 600;
+}
+div.jumbotron input{
+    width: 20% !important;
+    float:left;
+    margin-left: 1% !important;
+}
+div.jumbotron input:last-child {
+    width: 10% !important;
+    background: orange !important;
+    border:none;
+}
+.info-company {
+    height:550px;
+    margin-right:0px !important;
+    display:flex;
+}
+div.col-30-info-company{
+    width: 34%;
+    margin:7px;
+    overflow: hidden;
+    text-align: left;
+    font-weight:300;
+    color:#ffffffb8;
+}
+.logo-footer{
+    width:30%;
+    border-radius:20px;
+}
+div.col-30-info-company h4{
+     font-weight:700;
+     color:#4c7980d1;
+}
+.area-2 h7{
+    font-weight: bold;
+}
+.area-3 a{
+    text-decoration:none;
+    color:white;
+    margin-bottom:3px;
+    color:#ffffffb8;
+}
+
+
+

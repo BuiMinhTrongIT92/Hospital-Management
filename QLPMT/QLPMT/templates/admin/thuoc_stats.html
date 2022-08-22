@@ -1,0 +1,99 @@
+{% extends 'admin/master.html' %}
+
+{% block body%}
+<h1 class="text-center" style="text-align: center; color:#2e4990; font-weight:800">BÁO CÁO SỬ DỤNG THUỐC</h1>
+<form>
+    <div class="form-group" style="margin:0">
+        <form>
+            <div class="form-group">
+                <input type="number" min="1" max="12" name="month" class="form-control" placeholder="Nhập tháng...">
+                <br>
+                <input type="number" min="2000" name="year" class="form-control" placeholder="Nhập năm...">
+            </div>
+            <input type="submit" value="Thống kê" class="btn btn-info">
+        </form>
+    </div>
+</form>
+<br>
+<div class="row">
+    <div class="col-md-7 col-xs-12">
+        <table>
+
+          <table class="table" style=" border:3px solid lightblue; margin:0">
+              <tr style="text-align:center;">
+                  <th colspan="4">BÁO CÁO SỬ DỤNG THUỐC</th>
+              </tr>
+                <tr style="text-align:center;">
+                    {% if month and year %}
+                    <th>Tháng: {{ month }}</th>
+                    <th>Năm: {{ year }}</th>
+                    {% endif %}
+                </tr>
+
+            </table>
+
+            <table class="table" style=" border:3px solid lightblue;">
+                <tr>
+                    <th>Thuốc</th>
+                    <th>Đơn vị</th>
+                    <th>Số lượng</th>
+                    <th>Số lần dùng</th>
+                    {% for s in thuoc_month_stats %}
+                    <tr>
+                        <td>{{ s[1] }}</td>
+                        <td>{{ s[2] }}</td>
+                        <td>{{ s[3] }}</td>
+                        <td>{{ s[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tr>
+            </table>
+        </table>
+    </div>
+
+    <div class="col-md-5 col-xs-12">
+        <canvas id="thongkethuoc"></canvas>
+    </div>
+</div>
+
+<br>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    let label1 = [], info = []
+    let r,g,b
+    let colr = []
+    let bor = []
+    {% for s in thuoc_month_stats %}
+        label1.push('{{ s[1] }}')
+        info.push('{{ s[3] }}')
+        r = Math.random()*255
+        g = Math.random()*255
+        b = Math.random()*255
+        colr.push(`rgba(${r}, ${g},${b})`)
+        bor.push(`rgba(${r}, ${g},${b})`)
+    {% endfor %}
+    const ctx = document.getElementById('thongkethuoc').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'polarArea',
+        data: {
+            labels: label1,
+            datasets: [{
+                label: label1,
+                data: info,
+                backgroundColor: colr,
+                borderColor: bor,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+{% endblock %}

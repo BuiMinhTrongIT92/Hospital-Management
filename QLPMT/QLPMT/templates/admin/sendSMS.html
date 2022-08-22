@@ -1,0 +1,36 @@
+{% extends 'admin/master.html' %}
+
+{% block body%}
+<form>
+    {% if date %}
+    <div class="form-group">
+        <input type="date" class="form-control" name="date" value="{{date}}"/>
+    </div>
+    {% endif %}
+    <input type="submit" value="Thống kê" class="btn btn-info"/>
+    <input type="submit" value="SEND" class="btn btn-danger" name="sen"/>
+</form>
+<br>
+<table class="table" style=" border:3px solid lightblue;">
+    <div>{{thongtinkhambenh}}</div>
+    <tr><th style="align:center">DANH SÁCH KHÁM BỆNH</th></tr>
+    <tr>
+        <th>ID Khám bệnh</th>
+        <th>Ngày khám</th>
+<!--        <th>Tiền khám</th>-->
+        <th>Tên bệnh nhân</th>
+        <th>Số điện thoại</th>
+        {% for ds in dskham %}
+        <tr>
+            <td>{{ ds[0] }}</td>
+            <td>{{ ds[1] }}</td>
+            <td>{{ ds[2] }}</td>
+            <td>{{ ds[3] }}</td>
+<!--            <td>{{ ds[4] }}</td>-->
+        </tr>
+        {% endfor %}
+    </tr>
+</table>
+
+
+{% endblock %}

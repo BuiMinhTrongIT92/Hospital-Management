@@ -1,0 +1,66 @@
+
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="{{ url_for('TrangChu')}}">
+        <img src="{{ url_for('static', filename='images/LoGoPhongKham.png') }}" alt="Logo" class="rounded-circle" style="width:50px">
+    </a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse sub-menu-bar collapse" id="navbarSupportedContent" style="">
+        <ul id="nav" class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="page-scroll" href="{{ url_for('TrangChu')}}">Trang Chủ</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="page-scroll" id="gioithieu" href="javascrip:;">Giới Thiệu</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="page-scroll" id="doingubacsi" href="javascrip:;">Đội Ngũ Bác Sĩ</a>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="page-scroll" href="#">Tin Tức</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="page-scroll" href="#">Liên Hệ</a>
+            </li>
+             <li class="nav-item">
+                <a class="page-scroll" id="dangkilichkham" href="#">Đăng kí lịch khám</a>
+            </li>
+            {% if current_user.is_authenticated %}
+             <li class="nav-item">
+                <div>
+                    {% if current_user.avatar %}
+                        <img class="avatar" src="{{ current_user.avatar }}">
+                    {% else %}
+                        <img class="avatar" src="{{ url_for('static', filename='images/pngegg.png') }}">
+                    {% endif%}
+                </div>
+                <div>
+                    <div class="btn_login" >{{ current_user.tenNguoiDung}}</div>
+                </div>
+                 <div>
+                    <a class="btn_logout" href="{{ url_for('user_signout')}}">Đăng xuất</a>
+                </div>
+             </li>
+            {% else %}
+            <li class="nav-item">
+                <div>
+                    <a class="btn_login" href="{{ url_for('user_register')}}">Đăng kí</a>
+                </div>
+                 <div>
+                    <a class="btn_logout" href="{{ url_for('user_signin')}}">Đăng nhập</a>
+                </div>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,67 @@
+{% extends 'admin/master.html' %}
+
+{% block body%}
+<form>
+    <div class="form-group" style="margin:0">
+        <p style="float:left; margin:15px; ">Mã phiếu khám: </p>
+        <input type="input" style="width: 200px; margin: 10px;float:left " class="form-control" name="idphieukham" value="{{idphieukham}}"/>
+        <input type="submit" style="margin: 10px" value="Tìm" class="btn btn-danger" name="tim"/>
+        <input type="submit" style="margin: 10px" value="Xuất hóa đơn" class="btn btn-danger" name="hoadon"/>
+    </div>
+
+</form>
+<br>
+<table class="table" style=" border:3px solid lightblue; margin:0">
+    <tr><th style="text-align: center">PHIẾU KHÁM BỆNH</th></tr>
+</table>
+<table class="table" style=" border:3px solid lightblue; margin:0">
+
+    <tr>
+        <th>Họ tên: {{thongtinkhambenh[0]}}</th>
+        <th>Ngày Khám: {{thongtinkhambenh[1].date()}}</th>
+    </tr>
+    <tr>
+        <th>Triệu chứng: {{thongtinkhambenh[2]}}</th>
+        <th>Dự đoán loại bệnh: {{thongtinkhambenh[3]}}</th>
+    </tr>
+</table>
+<table class="table" style=" border:3px solid lightblue;">
+
+    <tr>
+        <th>Thuốc</th>
+        <th>Đơn vị</th>
+        <th>Số lượng</th>
+        <th>Cách dùng</th>
+        {% for ds in dsthuoc %}
+        <tr>
+            <td>{{ ds[1] }}</td>
+            <td>{{ ds[2] }}</td>
+            <td>{{ ds[3] }}</td>
+            <td>{{ ds[4] }}</td>
+        </tr>
+        {% endfor %}
+    </tr>
+</table>
+<br>
+{% if tien[0] > 0 %}
+    <table class="table" style=" border:3px solid lightblue; margin:0">
+        <tr ><th style="text-align: center">HÓA ĐƠN THANH TOÁN</th></tr>
+    </table>
+    <table class="table" style=" border:3px solid lightblue; margin:0">
+
+        <tr>
+            <th>Họ tên: {{thongtinkhambenh[0]}}</th>
+            <th>Ngày khám: {{thongtinkhambenh[1].date()}}</th>
+        </tr>
+        <tr>
+            <th>Tiền khám: {{tien[0]}}</th>
+            <th>Tiền thuốc: {{tien[1]}}</th>
+        </tr>
+    </table>
+    <table class="table" style=" border:3px solid lightblue; margin:0">
+        <tr ><th>Tổng tiền: {{tien[2]}}</th></tr>
+    </table>
+{% endif%}
+
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'admin/master.html' %}
+
+{% block body%}
+<h1 class="text-center" style="color: #2e4990;
+    font-weight: 800;">THỐNG KÊ BÁO CÁO DOANH THU</h1>
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+        <table class="table" style=" border:3px solid lightblue;">
+            <thead>
+                <tr style="text-align:center;font-weight:bold">
+                    <tr style="text-align:center;">
+                  <th colspan="4" >THỐNG KÊ BÁO CÁO DOANH THU</th>
+              </tr>
+                </tr>
+                <tr style="text-align:center; font-weight:bold">
+                    {% if month%}
+                    <td colspan="4">Tháng: {{month}}</td>
+                    {% endif %}
+                </tr>
+            </thead>
+
+            <tr>
+                <th>Ngày</th>
+                <th>Số Bệnh nhân</th>
+                <th>Doanh thu</th>
+                <th>Tỉ lệ</th>
+            </tr>
+            {% for s in month_stats %}
+            <tr>
+                <td>{{ s[0].date() }} </td>
+                <td>{{ s[2] }}</td>
+                <td>{{ "{:,.1f}".format(s[1]) }} VNĐ</td>
+                <td>{{ s[3] }}</td>
+            </tr>
+            {% endfor %}
+            <tfoot>
+               {% if dt%}
+                    <td colspan="4" style="font-weight:bold">Tổng doanh thu: {{dt}} VNĐ</td>
+               {% endif %}
+            </tfoot>
+        </table>
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <form>
+            <div class="form-group">
+                <input type="date" class="form-control" name="dat"/>
+            </div>
+            <input type="submit" value="Thống kê" class="btn btn-info"/>
+        </form>
+        <canvas id="thongkechart"></canvas>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    let labels = [], info = []
+    let r,g,b
+    let colr = []
+    let bor = []
+    {% for s in month_stats %}
+        labels.push('{{ s[0].date() }}')
+        info.push('{{ s[1] }}')
+        r = Math.random()*255
+        g = Math.random()*255
+        b = Math.random()*255
+        colr.push(`rgba(${r}, ${g},${b})`)
+        bor.push(`rgba(${r}, ${g},${b})`)
+    {% endfor %}
+    const ctx = document.getElementById('thongkechart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Thống kê doanh thu',
+                data: info,
+                backgroundColor: colr,
+                borderColor: bor,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+{% endblock %}

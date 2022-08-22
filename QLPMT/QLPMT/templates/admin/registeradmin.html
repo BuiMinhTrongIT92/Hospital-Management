@@ -1,0 +1,71 @@
+{% extends 'admin/master.html' %}
+
+{% block body%}
+<h1 id="tenphongkham" style="text-align: center; color:#2e4990; font-weight:800">Đăng kí người dùng</h1>
+<section class="trangchu-dangki-hinhanh">
+        <div class="trangchu thongtin">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Họ tên</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Tên tài khoản</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="birthday">Năm sinh</label>
+                    <input type="date" class="form-control" id="birthday" name="birthday" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Giới tính:</label><br>
+                    <select name="gender" id="gender">
+                        <option value="Nữ">Nữ</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" class="form-control" id="address" name="address">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm">Xác nhận mật khẩu</label>
+                    <input type="password" class="form-control" id="confirm" name="confirm" required>
+                </div>
+                <div class="form-group">
+                    <label for="SDT">Số điện thoại</label>
+                    <input type="number" class="form-control" id="SDT" name="SDT" required>
+                </div>
+                <div class="form-group">
+                    <label for="avatar">Ảnh đại diện</label>
+                    <input type="file" class="form-control" id="avatar" name="avatar">
+                </div>
+                <div class="form-group">
+                    <label for="role">Giới tính:</label><br>
+                    <select name="role" id="role">
+                        <option value="Nữ">Nữ</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                </div>
+                {% if err_register %}
+                <div class="alert alert-danger" style="color:red">{{ err_register }}</div>
+                {% endif %}
+                <input type="submit" value="Đăng kí" class="btn btn-danger">
+                <br><br>
+                </form>
+        </div>
+
+
+    </section>
+{% endblock%}
